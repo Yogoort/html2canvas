@@ -535,7 +535,9 @@ export class CanvasRenderer {
             return image;
         }
 
-        const canvas = (this.canvas.ownerDocument as Document).createElement('canvas');
+        const canvas = this.canvas.ownerDocument 
+            ? (this.canvas.ownerDocument as Document).createElement('canvas')
+            :document.createElement('canvas');
         canvas.width = width;
         canvas.height = height;
         const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
